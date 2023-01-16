@@ -1,29 +1,30 @@
 <?php
-
+session_start();
 
 include('config.php');
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
 
 if (!$conn) {
     die("Falha de conexao: " . mysqli_connect_error());
 }
 
-$nome = mysqli_real_escape_string($conn,$_POST["user"]);
+$username = mysqli_real_escape_string($conn,$_POST["user"]);
 $password_string = mysqli_real_escape_string($conn,$_POST["password"]);
-$password_hash = password_hash($password_string, PASSWORD_BCRYPT);
 
-$sql = "SELECT username, passwd FROM users_list where username='$nome' and passwd='$password_hash'";
-
-$result = mysqli_query($conn, $sql);
+$sql = "SELECT * FROM events_users WHERE username='$username'";
+$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
-        include('home_page.dart');
+        if(password_verify($password_string, $row['passwd'])){
+            $_SESSION["username"] = $username;
+            header('location: ./homepage/index.php');
+        } else {
+            echo "utilizador ou palavra-passe incorreta";
         }
-    } else {
-		echo "utilizador ou palavra-passe incorreta";
-	}
+    }
+} else {
+    echo "utilizador ou palavra-passe incorreta";
+}
 
 mysqli_close($conn);
 ?>

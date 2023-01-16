@@ -20,22 +20,22 @@
             </div>
 
             <div class="login__forms">
-                <form action="login.php" class="login__registre" id="login-in">
+                <form action="login.php" class="login__registre" id="login-in" method="post">
                     <h1 class="login__title">Login</h1>
 
                     <div class="login__box">
                         <i class='bx bx-user login__icon'></i>
-                        <input type="text" placeholder="Utilizador" class="login__input">
+                        <input type="text" placeholder="Utilizador" class="login__input" name="user">
                     </div>
 
                     <div class="login__box">
                         <i class='bx bx-lock-alt login__icon'></i>
-                        <input type="password" placeholder="Palavra-passe" class="login__input">
+                        <input type="password" placeholder="Palavra-passe" class="login__input" name="password">
                     </div>
 
-                    <a href="#" class="login__forgot">esqueceste da senha?</a>
+                    <a class="login__forgot">Esqueceste da senha?</a>
 
-                    <a href="#" class="login__button"><input type="submit" style="display: none">Login</a>
+                    <a class="login__button"><input type="submit" style="display: none">Login</a>
 
                     <div>
                         <span class="login__account">Não tens uma conta?</span>
@@ -43,25 +43,25 @@
                     </div>
                 </form>
 
-                <form action="register.php" class="login__create none" id="login-up">
+                <form action="register.php" class="login__create none" id="login-up" method="post">
                     <h1 class="login__title">Criar conta</h1>
 
                     <div class="login__box">
                         <i class='bx bx-user login__icon'></i>
-                        <input type="text" placeholder="Utilizador" class="login__input">
+                        <input type="text" placeholder="Utilizador" class="login__input" name="user">
                     </div>
 
                     <div class="login__box">
                         <i class='bx bx-at login__icon'></i>
-                        <input type="text" placeholder="Email" class="login__input">
+                        <input type="text" placeholder="Email" class="login__input" name="email">
                     </div>
 
                     <div class="login__box">
                         <i class='bx bx-lock-alt login__icon'></i>
-                        <input type="password" placeholder="Palavra-passe" class="login__input">
+                        <input type="password" placeholder="Palavra-passe" class="login__input" name="password">
                     </div>
 
-                    <a href="#" class="login__button"><input type="submit" style="display: none"></a>
+                    <a href="#" class="login__button"><input type="submit" style="display: none">register</a>
 
                     <div>
                         <span class="login__account">Já tens uma conta?</span>
@@ -73,7 +73,6 @@
         </div>
     </div>
 
-    <!--===== MAIN JS =====-->
     <script src="assets/js/main.js"></script>
 </body>
 

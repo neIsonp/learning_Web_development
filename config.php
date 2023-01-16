@@ -6,7 +6,7 @@ $utilizador = "projectuser";
 
 $password = "system32";
 
-$dbnome = "eventos";
+$dbnome = "events";
 
 $conn = mysqli_connect($servidor, $utilizador, $password, $dbnome);
 
