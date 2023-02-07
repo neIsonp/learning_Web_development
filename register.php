@@ -16,7 +16,7 @@ $sql = "INSERT INTO events_users (username, email, passwd) Values ('".$nome."', 
 
 if($nome != null && $password_string != null && $email != null){
     if (mysqli_query($conn, $sql)) {
-        echo "Novo registo criado com sucesso";
+         header('location: ./homepage_org/index.php');
     }
 }else {
     echo 'Insira todos os dados corretamente!';

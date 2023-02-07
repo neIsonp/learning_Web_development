@@ -17,7 +17,7 @@ if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         if(password_verify($password_string, $row['passwd'])){
             $_SESSION["username"] = $username;
-            header('location: ./homepage/index.php');
+            header('location: ./homepage_org/index.php');
         } else {
             echo "utilizador ou palavra-passe incorreta";
         }
